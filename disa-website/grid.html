@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*.container{
+				display:grid;
+				grid-template-columns:repeat(12,1fr);
+				grid-template-rows:60px 350px 50px ;
+				grid-gap:5px;
+				grid-template-areas:
+					". h h h h h h h h h h ."
+					"m m c c c c c c c c c c"
+					". f f f f f f f f f f .";
+			}
+			.header{
+				grid-area:h;
+				text-align:center;
+				background:green;
+			}
+			.menu{
+				grid-area:m;
+				text-align:center;
+				background:cornflowerblue;
+			}
+			.content{
+				grid-area:c;
+				text-align:center;
+				background:yellow;
+			}
+			.footer{
+				grid-area:f;
+				text-align:center;
+				background:lightcoral;
+			}
+			@media only screen  and (max-width: 640px) {
+				.container{
+					grid-template-areas:
+						"h h h h h h h h h h h h"
+						"m m c c c c c c c c c c"
+						"f f f f f f f f f f f f";
+				}
+			}*/
+			.grid-box{
+				display:grid;
+				grid-template-columns:repeat(3, 33.33%);
+				grid-template-rows:repeat(3, 33.33%);
+			}
+			.item2{
+				grid-column-start:3;
+				grid-column-end:4;
+				grid-row-start:2;
+				grid-row-end:3;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div class="container">
+			<div class="header">Header</div>
+			<div class="menu">Menu</div>
+			<div class="content">Content</div>
+			<div class="footer">Footer</div>
+		</div>-->
+		<div class="grid-box">
+			<div>1</div>
+			<div class="item2">2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+			<div>7</div>
+			<div>8</div>
+			<div>9</div>
+		</div>
+		<h2 id="Mailing_address">Mailing address</h2>
+		<br />
+		<table border="1" width="200">
+			<colgroup>
+			    
+			    <col style="background-color: yellow" span='2'>
+			</colgroup>
+			<tr>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2</td>
+				<td>2</td>
+			</tr>
+			
+		</table>
+		<p>The <a href="#Mailing_address">company mailing address</a> can be found at the bottom of this page.</p>
+		<h1></h1>
+		<button>切换用户</button>
+		<script>
+			function setHeading(name) {
+				if(!name||name==" "){
+					alert('必须填写名字哦')
+					setUserName();
+					return;
+				} 
+			  let myHeading = document.querySelector('h1');
+			  myHeading.textContent = 'Mozilla 酷毙了，' + name + '！';
+			}
+			
+			function setUserName() {
+			  let myName = prompt('请输入你的名字');
+			  localStorage.setItem('name', myName);
+			  setHeading(myName);
+			} 
+			
+			let storedName = localStorage.getItem('name');
+			if(!storedName) {
+			   setUserName();
+			} else {
+			   setHeading(storedName);
+			}
+			
+			let myButton = document.querySelector('button'); 
+			myButton.onclick = setUserName;
+		</script>
+	</body>
+</html>
